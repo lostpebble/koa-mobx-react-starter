@@ -1,0 +1,32 @@
+doctype html
+html(lang="en")
+    head
+        title= title
+        meta(charset='utf-8')
+        meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0")
+        meta(name="description", content=description)
+        meta(property='og:title', content=title)
+        meta(property='og:site_name', content='Vibescout')
+        meta(property='og:url', content=url)
+        meta(property='og:description', content=description)
+        meta(property='og:image', content=imageUrl)
+        meta(property='og:image:width', content=imageWidth)
+        meta(property='og:image:height', content=imageHeight)
+        link(rel="apple-touch-icon", href="/extra/apple-touch-icon.png")
+        link(rel="icon", href="/extra/favicon_new.png")
+        link(rel="stylesheet", type="text/css", href="/static/styles.css")
+    body
+        div#root!= html
+        script(type='text/javascript').
+            window.__INITIAL_STATE__ = !{JSON.stringify(initialState)};
+            window.basepath = "!{basePath}";
+
+            window.ga = window.ga || function () {
+                        (ga.q = ga.q || []).push(arguments)
+                    };ga.l = +new Date;
+            ga('create', 'UA-65548719-1', 'auto');
+            ga('require', 'autotrack');
+            ga('send', 'pageview');
+        script(async src='https://www.google-analytics.com/analytics.js')
+        script(async src = '/extra/autotrack.js')
+        script(src="/static/bundle.js")
