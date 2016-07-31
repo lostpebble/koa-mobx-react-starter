@@ -39,3 +39,13 @@ npm start
 Or for quick production testing `npm run buildstart`
 
 Before deployment to a production server, your code should always be built first- so that the default `npm start` can be used to spin up quickly.
+
+##Important Configuration Information
+
+I've used a file watcher built into WebStorm to automatically process my ES2016/2017 server code through Babel so that it always stays up to date and runs without much hassle on Node. This is configured in the IDE, but can also be achieved with many other methods of your choice (manually through `babel-cli` with the `--watch` option for example).
+
+Also, there is an `.eslint` file included with the configuration used for this project, but I run my linting globally so you will have to set up your own linting accordingly. To make it easier, to install the modules I use for ESLint you can do: 
+
+```
+npm install --save-dev babel-eslint@6 eslint-config-airbnb eslint@^2.9.0 eslint-plugin-jsx-a11y@^1.2.0 eslint-plugin-import@^1.7.0 eslint-plugin-react@^5.0.1
+```

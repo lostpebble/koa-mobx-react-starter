@@ -11,6 +11,7 @@
     "no-param-reassign": 0,
     "no-trailing-spaces": [2, {
       "skipBlankLines": true
-    }]
+    }],
+    "quotes": 0
   }
 }
