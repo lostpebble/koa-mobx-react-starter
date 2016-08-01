@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./server/server-compiled.js",
-    "dev": "cross-env NODE_ENV=development nodemon ./server/server-compiled.js"
+    "start": "node ./server/babel-server.js",
+    "dev": "cross-env NODE_ENV=development nodemon ./server/babel-server.js"
   },
   "author": "Paul Myburgh",
   "license": "ISC",
   "dependencies": {
+    "babel-register": "^6.11.6",
     "koa": "^2.0.0-alpha.4",
     "koa-pug": "^3.0.0-0",
     "koa-static": "^3.0.0",
@@ -27,6 +28,7 @@
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-3": "^6.11.0",
     "cross-env": "^2.0.0",
+    "json-loader": "^0.5.4",
     "koa-webpack-middleware": "^1.0.1",
     "react-hot-loader": "^3.0.0-beta.1",
     "webpack": "2.1.0-beta.20"

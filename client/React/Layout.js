@@ -1,10 +1,15 @@
 import React from 'react';
 
-export default function Layout({ children }) {
+export default function Layout(props) {
   return (
-    <div>
+    <div style={props.style}>
       <h1>Hello, world!</h1>
-      {children}
+      {props.children}
     </div>
-  )
+  );
 }
+
+Layout.propTypes = {
+  style: React.PropTypes.object,
+  children: React.PropTypes.any,
+};

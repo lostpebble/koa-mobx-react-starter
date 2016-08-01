@@ -3,16 +3,14 @@ const { resolve } = require('path');
 const webpack = require('webpack');
 
 module.exports = (env) => ({
-  context: resolve(__dirname, './client'),
   entry: [
     'react-hot-loader/patch',
     'webpack-hot-middleware/client',
-    './entry.js',
+    './client/entry.js',
   ],
   target: 'web',
   output: {
     filename: 'bundle.js',
-    path: resolve(__dirname, './dist'),
     pathInfo: !env.prod,
     publicPath: '/static/',
   },

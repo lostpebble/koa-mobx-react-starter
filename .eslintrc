@@ -12,6 +12,7 @@
     "no-trailing-spaces": [2, {
       "skipBlankLines": true
     }],
-    "quotes": 0
+    "quotes": 0,
+    "max-len": 0
   }
 }
