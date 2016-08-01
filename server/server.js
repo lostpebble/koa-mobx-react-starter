@@ -1,6 +1,7 @@
 import 'babel-polyfill';
 import Koa from 'koa';
 import Pug from 'koa-pug';
+import KoaStatic from 'koa-static';
 
 import webpack from 'webpack';
 import { devMiddleware, hotMiddleware} from 'koa-webpack-middleware';
@@ -21,7 +22,7 @@ if (process.env.NODE_ENV === 'development') {
     publicPath: devConfigBuilt.output.publicPath,
   }));
 
-  app.use(hotMiddleware(compile, {}));
+  app.use(hotMiddleware(compile));
 } else {
   console.log("Production environment");
 }

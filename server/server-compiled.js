@@ -10,6 +10,10 @@ var _koaPug = require('koa-pug');
 
 var _koaPug2 = _interopRequireDefault(_koaPug);
 
+var _koaStatic = require('koa-static');
+
+var _koaStatic2 = _interopRequireDefault(_koaStatic);
+
 var _webpack = require('webpack');
 
 var _webpack2 = _interopRequireDefault(_webpack);
@@ -39,7 +43,7 @@ if (process.env.NODE_ENV === 'development') {
 				publicPath: devConfigBuilt.output.publicPath
 		}));
 
-		app.use((0, _koaWebpackMiddleware.hotMiddleware)(compile, {}));
+		app.use((0, _koaWebpackMiddleware.hotMiddleware)(compile));
 } else {
 		console.log("Production environment");
 }
