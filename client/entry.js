@@ -1,14 +1,13 @@
-import { AppContainer } from 'react-hot-loader';
+// import { AppContainer } from 'react-hot-loader';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './React/App';
 
 const rootEl = document.getElementById('root');
 
+import baseReact from './baseReact';
+
 ReactDOM.render(
-  <AppContainer>
-    <App />
-  </AppContainer>,
+  baseReact(),
   rootEl
 );
 
@@ -18,9 +17,7 @@ if (module.hot) {
     // use <App /> here rather than require() a <NextApp />.
     // const NextApp = require('./React/App').default;
     ReactDOM.render(
-      <AppContainer>
-        <App />
-      </AppContainer>,
+      baseReact(),
       rootEl
     );
   });

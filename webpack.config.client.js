@@ -1,5 +1,3 @@
-const { resolve } = require('path');
-
 const webpack = require('webpack');
 
 module.exports = (env) => ({
@@ -12,7 +10,7 @@ module.exports = (env) => ({
   output: {
     filename: 'bundle.js',
     pathInfo: !env.prod,
-    publicPath: '/static/',
+    publicPath: '/dist/',
   },
   devtool: env.prod ? 'source-map' : 'eval',
   module: {

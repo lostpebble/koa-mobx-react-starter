@@ -1,0 +1,24 @@
+{
+  "env": {
+    "server": {
+      "presets": [
+        "stage-3",
+        "es2015",
+        "react"
+      ],
+      "plugins": [
+        "transform-regenerator"
+      ]
+    },
+
+    "client": {
+      "presets": [
+        "es2015-native-modules",
+        "react"
+      ],
+      "plugins": [
+        "react-hot-loader/babel"
+      ]
+    }
+  }
+}
