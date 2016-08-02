@@ -16,6 +16,8 @@ import {
 	renderReact,
 } from './middleware/crossoverMiddleware';
 
+const prod = process.env.NODE_ENV !== 'development';
+
 const app = new Koa();
 
 const pug = new Pug({ viewPath: './server/views' });
@@ -23,21 +25,23 @@ pug.use(app);
 
 app.use(serverLogging());
 app.use(baseErrorHandling());
-app.use(compressResponse());
+if (prod) app.use(compressResponse());
 app.use(serveStaticFiles());
 
 app.use(route.get('/', renderReact()));
+/*
+app.use(route.get('/', async ctx => {
+	console.log("Rendering base page");
+
+	ctx.render('base', {
+		initialState: {
+			what: "what",
+		},
+	});
+}));*/
 
 /*
- async ctx => {
- console.log("Rendering base page");
 
- ctx.render('base', {
- initialState: {
- what: "what",
- },
- });
- })
 */
 
 app.use(route.get('/static/(.*)', async () => {
@@ -46,6 +50,7 @@ app.use(route.get('/static/(.*)', async () => {
 
 // DEVELOPMENT STUFF
 if (process.env.NODE_ENV === 'development') {
+	process.env.BABEL_ENV = 'client';
 	app.use(developmentMiddleware());
 } else {
 	console.log("Production environment");

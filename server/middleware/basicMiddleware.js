@@ -40,6 +40,8 @@ export function developmentMiddleware() {
 	const devConfigBuilt = devConfig({ env: { prod: false } });
 	const compile = webpack(devConfigBuilt);
 
+	// console.dir(devConfigBuilt);
+
 	return compose([
 		devMiddleware(compile, {
 			noInfo: true,

@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Layout(props) {
   return (
-    <div style={props.style}>
+    <div>
       <h1>Hello, world!</h1>
       {props.children}
     </div>
