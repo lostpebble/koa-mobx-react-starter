@@ -14,11 +14,18 @@
 
     "client": {
       "presets": [
-        "es2015-native-modules",
+        "es2015-webpack",
         "react"
       ],
       "plugins": [
         "react-hot-loader/babel"
+      ]
+    },
+
+    "client-build": {
+      "presets": [
+        "es2015-webpack",
+        "react"
       ]
     }
   }

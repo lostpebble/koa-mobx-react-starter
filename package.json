@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./server/babel-server.js",
+    "build": "cross-env BABEL_ENV=client-build webpack --config webpack.config.client.js --env.prod",
     "dev": "cross-env NODE_ENV=development nodemon ./server/babel-server.js"
   },
   "author": "Paul Myburgh",
@@ -22,6 +23,7 @@
     "koa-route": "^3.1.0",
     "koa-router": "^7.0.1",
     "koa-static": "^3.0.0",
+    "mobx": "^2.4.1",
     "react": "^15.3.0",
     "react-dom": "^15.3.0"
   },
@@ -31,13 +33,13 @@
     "babel-plugin-transform-regenerator": "^6.11.4",
     "babel-polyfill": "^6.9.1",
     "babel-preset-es2015": "^6.9.0",
-    "babel-preset-es2015-native-modules": "^6.9.2",
+    "babel-preset-es2015-webpack": "^6.4.2",
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-3": "^6.11.0",
     "cross-env": "^2.0.0",
     "json-loader": "^0.5.4",
     "koa-webpack-middleware": "^1.0.1",
     "react-hot-loader": "^3.0.0-beta.1",
-    "webpack": "2.1.0-beta.20"
+    "webpack": "^2.1.0-beta.20"
   }
 }

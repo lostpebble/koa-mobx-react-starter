@@ -27,26 +27,7 @@ app.use(serverLogging());
 app.use(baseErrorHandling());
 if (prod) app.use(compressResponse());
 app.use(serveStaticFiles());
-
 app.use(route.get('/', renderReact()));
-/*
-app.use(route.get('/', async ctx => {
-	console.log("Rendering base page");
-
-	ctx.render('base', {
-		initialState: {
-			what: "what",
-		},
-	});
-}));*/
-
-/*
-
-*/
-
-app.use(route.get('/static/(.*)', async () => {
-	console.log("Rendering nothing, checking downstream");
-}));
 
 // DEVELOPMENT STUFF
 if (process.env.NODE_ENV === 'development') {
