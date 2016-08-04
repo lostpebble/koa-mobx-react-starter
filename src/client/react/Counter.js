@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { observer } from 'mobx-react';
 
+@observer
 export default class Counter extends Component {
+
   constructor(props) {
     super(props);
     this.state = { counter: 0 };

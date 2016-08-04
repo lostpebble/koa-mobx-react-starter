@@ -20,7 +20,7 @@ const prod = process.env.NODE_ENV !== 'development';
 
 const app = new Koa();
 
-const pug = new Pug({ viewPath: './server/views' });
+const pug = new Pug({ viewPath: './src/server/views' });
 pug.use(app);
 
 app.use(serverLogging());

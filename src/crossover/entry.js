@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import App from './React/App';
+import App from '../client/react/App';
 
 /*
  +*  This function is important for the crossover between server and client (isomorphic / universal).
@@ -30,7 +30,7 @@ if (typeof document !== 'undefined') {
   // This is required for React hot reloading, will be
   // turned off automatically for production
   if (module.hot) {
-    module.hot.accept('./React/App', () => {
+    module.hot.accept('../client/react/App', () => {
       ReactDOM.render(
         baseReact(),
         rootEl

@@ -6,7 +6,7 @@ import logger from 'koa-logger';
 
 import webpack from 'webpack';
 import { devMiddleware, hotMiddleware } from 'koa-webpack-middleware';
-import devConfig from '../../webpack.config.client';
+import devConfig from '../../../webpack.config.client';
 
 export function baseErrorHandling() {
 	return async (ctx, next) => {

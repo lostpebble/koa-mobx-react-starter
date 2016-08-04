@@ -6,10 +6,10 @@ module.exports = (env) => {
 
   return ({
     entry: !env.prod ? (
-      ['react-hot-loader/patch', 'webpack-hot-middleware/client', './client/entry.js']
+      ['react-hot-loader/patch', 'webpack-hot-middleware/client', './src/crossover/entry.js']
     ) : (
       {
-        js: './client/entry.js',
+        js: './src/crossover/entry.js',
         vendor: ['react', 'react-dom'],
       }
     ),
