@@ -6,7 +6,8 @@
   ],
   "verbose": true,
   "watch": [
-    "server/"
+    "src/server/",
+    "src/express-server/"
   ],
   "ext": "js json"
 }

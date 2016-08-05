@@ -37,7 +37,10 @@ export function serveStaticFiles() {
 export function developmentMiddleware() {
 	console.log("Development environment, starting HMR");
 
-	const devConfigBuilt = devConfig({ env: { prod: false } });
+	// FOR WEBPACK v2
+	// const devConfigBuilt = devConfig({ env: { prod: false } });
+
+	const devConfigBuilt = devConfig;
 	const compile = webpack(devConfigBuilt);
 
 	// console.dir(devConfigBuilt);

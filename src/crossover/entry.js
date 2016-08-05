@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
 import App from '../client/react/App';
 
 /*
@@ -10,9 +9,7 @@ import App from '../client/react/App';
 
 export function baseReact(options) {
   return (
-    <AppContainer>
-      <App />
-    </AppContainer>
+    <App />
   );
 }
 

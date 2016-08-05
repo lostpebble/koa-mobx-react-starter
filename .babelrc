@@ -8,25 +8,23 @@
       ],
       "plugins": [
         "transform-decorators-legacy",
-        "react-hot-loader/babel",
         "transform-regenerator"
       ]
     },
 
     "client": {
       "presets": [
-        "es2015-webpack",
+        "es2015",
         "react"
       ],
       "plugins": [
-        "transform-decorators-legacy",
-        "react-hot-loader/babel"
+        "transform-decorators-legacy"
       ]
     },
 
     "client-build": {
       "presets": [
-        "es2015-webpack",
+        "es2015",
         "react"
       ],
       "plugins": [
