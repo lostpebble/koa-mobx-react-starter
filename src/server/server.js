@@ -25,7 +25,7 @@ pug.use(app);
 
 app.use(serverLogging());
 app.use(baseErrorHandling());
-// if (prod) app.use(compressResponse());
+if (prod) app.use(compressResponse());
 app.use(serveStaticFiles());
 app.use(route.get('/', renderReact()));
 

@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 
+import CounterStore from '../../crossover/mobx/stores/CounterStore';
+
 @observer
 export default class Counter extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = { counter: 0 };
-  }
 
   componentDidMount() {
     this.interval = setInterval(this.tick.bind(this), 1000);
@@ -18,14 +15,12 @@ export default class Counter extends Component {
   }
 
   tick() {
-    this.setState({
-      counter: this.state.counter + 1,
-    });
+    CounterStore.incrementCount();
   }
 
   render() {
     return (
-      <h2>Counter: {this.state.counter}</h2>
+      <h2>Counter: {CounterStore.counterValue}</h2>
    );
   }
 }

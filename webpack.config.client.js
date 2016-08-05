@@ -6,7 +6,7 @@ console.log(`Compiling client code with production set (${prod})`);
 
 module.exports = {
 	entry: !prod ? (
-		['webpack-hot-middleware/client', './src/crossover/entry.js']
+		['webpack-hot-middleware/client', join(__dirname, './src/crossover/entry.js')]
 	) : (
 	{
 		js: './src/crossover/entry.js',
@@ -33,10 +33,7 @@ module.exports = {
 				test: /\.(jsx?)$/,
 				loader: 'babel',
 				exclude: /node_modules/,
-				include: __dirname,
-				query: {
-					presets: ['react-hmre']
-				}
+				include: __dirname
 			},
 		],
 	},
