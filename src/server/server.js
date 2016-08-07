@@ -31,7 +31,7 @@ app.use(route.get('/', renderReact()));
 
 // DEVELOPMENT STUFF
 if (process.env.NODE_ENV === 'development') {
-	process.env.BABEL_ENV = 'client';
+	process.env.BABEL_ENV = 'client-dev';
 	app.use(developmentMiddleware());
 } else {
 	console.log("Production environment");

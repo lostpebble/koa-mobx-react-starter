@@ -22,18 +22,13 @@ module.exports = {
 	},
 	devtool: prod ? 'source-map' : 'eval',
 	module: {
-		loaders: [prod ?
+		loaders: [
 			{
 				test: /\.(jsx?)$/,
 				exclude: /node_modules/,
 				loaders: [
 					'babel-loader',
 				],
-			} : {
-				test: /\.(jsx?)$/,
-				loader: 'babel',
-				exclude: /node_modules/,
-				include: __dirname
 			},
 		],
 	},
@@ -42,7 +37,7 @@ module.exports = {
 		new webpack.DefinePlugin({
 			'process.env': {
 				NODE_ENV: JSON.stringify('development'),
-				BABEL_ENV: JSON.stringify('client'),
+				BABEL_ENV: JSON.stringify('client-dev'),
 			},
 		}),
 	]) : ([
