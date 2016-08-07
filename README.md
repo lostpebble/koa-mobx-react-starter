@@ -6,7 +6,7 @@ Along with aiming to use the bleeding-edge of JavaScript (within reason- and all
 
 A short rundown of the various technologies:
 ###Server
-- [Koa](http://koajs.com/) - A bleeding-edge Node server framework, using the async-await syntax. Server code compiled back to a widely adopted standard of JavaScript using Babel.
+- [Koa](http://koajs.com/) - A Node server framework with an eye on the future, using the async-await syntax. Server code compiled back to a widely adopted standard of JavaScript using Babel.
 - [Pug](https://github.com/pugjs) (formerly Jade) for views - Concise HTML view engine, into which we slot in our React-generated HTML
 
 ###Crossover
