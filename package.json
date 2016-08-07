@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./src/server/babel-server.js",
+    "monitor": "nodemon ./src/server/babel-server.js",
     "build": "cross-env NODE_ENV=production BABEL_ENV=client-build webpack --config webpack.config.client.js",
+    "buildstart": "npm run build && npm run start",
+    "buildmonitor": "npm run build && npm run monitor",
     "dev": "cross-env NODE_ENV=development nodemon ./src/server/babel-server.js"
   },
   "author": "Paul Myburgh",
@@ -24,8 +27,8 @@
     "koa-route": "^3.1.0",
     "koa-router": "^7.0.1",
     "koa-static": "^3.0.0",
-    "mobx": "^2.4.1",
-    "mobx-react": "^3.5.3",
+    "mobx": "^2.4.2",
+    "mobx-react": "^3.5.4",
     "morgan": "^1.7.0",
     "react": "^15.3.0",
     "react-dom": "^15.3.0"

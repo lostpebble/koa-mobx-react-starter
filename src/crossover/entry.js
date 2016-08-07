@@ -1,15 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'mobx-react';
 import App from '../client/react/App';
+
+import { createStoresFromState } from '../crossover/mobx/stores/store-utils';
 
 /*
  +*  This function is important for the crossover between server and client (isomorphic / universal).
  +*  It defines a single, identical starting point for ReactJS page layout on both sides.
  +* */
 
-export function baseReact(options) {
+export function baseReact(stores) {
   return (
-    <App />
+    <Provider { ...stores }>
+      <App />
+    </Provider>
   );
 }
 
@@ -19,8 +24,16 @@ export function baseReact(options) {
 if (typeof document !== 'undefined') {
   const rootEl = document.getElementById('root');
 
+  const initialState = JSON.parse(window.__INITIAL_STATE__);
+  const stores = createStoresFromState(initialState);
+
+  /*console.dir(initialState);
+  console.dir(Object.assign({}, stores.counterStore));
+  console.log("Hydrating react from server");
+  console.dir(stores);*/
+
   ReactDOM.render(
-    baseReact(),
+    baseReact(stores),
     rootEl
   );
 

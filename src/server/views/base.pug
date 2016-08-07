@@ -10,5 +10,6 @@ html(lang="en")
     body
         div#root!= html
         script(type='text/javascript').
-            //window.__INITIAL_STATE__ = !{JSON.stringify(initialState)};
+            window.__INITIAL_STATE__ = !{JSON.stringify(initialState)};
+        script(src="/dist/vendor.bundle.js")
         script(src="/dist/bundle.js")

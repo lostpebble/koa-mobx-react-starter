@@ -29,13 +29,26 @@ export function compressResponse() {
 
 export function serveStaticFiles() {
 	const staticFolder = mount('/static', serve(`${__dirname}/../static`));
-	const distFolder = mount('/dist', serve(`${__dirname}/../dist`));
+	const distFolder = mount('/dist', serve(`${__dirname}/../../../dist`));
 
 	return compose([staticFolder, distFolder]);
 }
 
 export function developmentMiddleware() {
 	console.log("Development environment, starting HMR");
+
+	// THIS CAUSES A "vendor.bundle.js:1 Uncaught SyntaxError: Unexpected identifier"
+	// ERROR, BUT BETTER THAN THE BROWSER TRYING AND NEVER FINDING THE FILE
+	const mockVendorBundle = async(ctx, next) => {
+		if (ctx.path === '/dist/vendor.bundle.js') {
+			ctx.body =
+				"Mocked vendor.bundle.js for development " +
+				"(not using separate bundle files for vendor" +
+				" and app code in development mode)";
+		} else {
+			await next();
+		}
+	};
 
 	// FOR WEBPACK v2
 	// const devConfigBuilt = devConfig({ env: { prod: false } });
@@ -46,6 +59,7 @@ export function developmentMiddleware() {
 	// console.dir(devConfigBuilt);
 
 	return compose([
+		mockVendorBundle,
 		devMiddleware(compile, {
 			noInfo: true,
 			publicPath: devConfigBuilt.output.publicPath,
