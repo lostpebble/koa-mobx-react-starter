@@ -1,5 +1,3 @@
-**WORK IN PROGRESS - DON'T CLONE YET**
-
 # koa-mobx-react-bootstrap
 
 Along with aiming to use the bleeding-edge of JavaScript (within reason- and all thanks to [Babel](https://babeljs.io/)), this repository represents a choice of frameworks and libraries I think work well together for an enjoyable NodeJS and frontend coding experience.
