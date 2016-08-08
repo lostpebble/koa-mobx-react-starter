@@ -1,9 +1,13 @@
+// Polyfills
+import objectValuesPolyfill from '../libraries/polyfills/objectValuesPolyfill';
+objectValuesPolyfill();
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'mobx-react';
 import App from '../client/react/App';
 
-import { createStoresFromState } from '../crossover/mobx/stores/store-utils';
+import { createStoresFromState } from '../crossover/mobx/store-utils';
 
 /*
  +*  This function is important for the crossover between server and client (isomorphic / universal).
@@ -27,10 +31,7 @@ if (typeof document !== 'undefined') {
   const initialState = JSON.parse(window.__INITIAL_STATE__);
   const stores = createStoresFromState(initialState);
 
-  /*console.dir(initialState);
-  console.dir(Object.assign({}, stores.counterStore));
-  console.log("Hydrating react from server");
-  console.dir(stores);*/
+  // console.dir(stores);
 
   ReactDOM.render(
     baseReact(stores),

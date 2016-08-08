@@ -9,7 +9,7 @@ const router = makeRouter();
 router.get('/', async(ctx, next) => {
 	console.log("Setting counter random value");
 
-	ctx.state.mobx.counterStore.setValue(await getRandomNumber());
+	ctx.state.mobx.CounterStore.setValue(await getRandomNumber());
 
 	await next();
 });

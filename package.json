@@ -51,6 +51,7 @@
     "cross-env": "^2.0.0",
     "json-loader": "^0.5.4",
     "koa-webpack-middleware": "^1.0.1",
+    "mobx-react-devtools": "^4.2.4",
     "webpack": "^1.13.1",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.12.2"

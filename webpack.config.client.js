@@ -9,7 +9,7 @@ module.exports = {
 		['webpack-hot-middleware/client', join(__dirname, './src/crossover/entry.js')]
 	) : (
 	{
-		js: './src/crossover/entry.js',
+		js: ['./src/crossover/entry.js'],
 		vendor: ['react', 'react-dom'],
 	}
 	),

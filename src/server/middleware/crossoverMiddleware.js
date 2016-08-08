@@ -2,7 +2,7 @@ import { renderToString } from 'react-dom/server';
 
 import { baseReact } from '../../crossover/entry';
 
-import { getFreshStores } from '../../crossover/mobx/stores/store-utils';
+import { getFreshStores } from '../../crossover/mobx/store-utils';
 
 export function injectState() {
 	return async (ctx, next) => {

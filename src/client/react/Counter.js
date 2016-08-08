@@ -3,7 +3,7 @@ import { observer } from 'mobx-react';
 
 // import CounterStore from '../../crossover/mobx/stores/CounterStore';
 
-@observer(["counterStore"])
+@observer(["CounterStore"])
 class Counter extends Component {
 
   componentDidMount() {
@@ -15,18 +15,18 @@ class Counter extends Component {
   }
 
   tick() {
-    this.props.counterStore.incrementValue();
+    this.props.CounterStore.incrementValue();
   }
 
   render() {
     return (
-      <h2>Counter: {this.props.counterStore.value}</h2>
+      <h2>Counter: {this.props.CounterStore.value}</h2>
    );
   }
 }
 
 Counter.wrappedComponent.propTypes = {
-  counterStore: PropTypes.object.isRequired,
+  CounterStore: PropTypes.object.isRequired,
 };
 
 export default Counter;
