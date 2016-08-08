@@ -22,6 +22,8 @@ export function baseReact(stores) {
 // we need to access this file from the server for baseReact() above and
 // this code will throw an error because of the undefined document variable
 if (typeof document !== 'undefined') {
+  require('../client/styles/entry.scss');
+
   const rootEl = document.getElementById('root');
 
   const initialState = JSON.parse(window.__INITIAL_STATE__);

@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import { observer } from 'mobx-react';
 
-import Layout from './Layout';
+// import Layout from './Layout';
 import Counter from './Counter';
 import UserProfile from './UserProfile';
-import Tabs from './Tabs';
+import Layout from './Layout';
 
 import { CTabs } from '../../crossover/constants/UIConstants';
 
@@ -37,8 +37,7 @@ export default class App extends Component {
     // <Tab> components to split the different views and control switching
 
     return (
-      <Layout>
-        <Tabs tabs={[CTabs.USER, CTabs.COUNTER]} />
+      <Layout tabs={[CTabs.USER, CTabs.COUNTER]}>
         {currentTab}
       </Layout>
     );

@@ -34,6 +34,7 @@
     "react-dom": "^15.3.0"
   },
   "devDependencies": {
+    "autoprefixer": "^6.4.0",
     "babel-cli": "^6.11.4",
     "babel-loader": "^6.2.4",
     "babel-plugin-transform-class-properties": "^6.11.5",
@@ -49,9 +50,15 @@
     "babel-preset-stage-0": "^6.5.0",
     "babel-preset-stage-3": "^6.11.0",
     "cross-env": "^2.0.0",
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
     "json-loader": "^0.5.4",
     "koa-webpack-middleware": "^1.0.1",
     "mobx-react-devtools": "^4.2.4",
+    "node-sass": "^3.8.0",
+    "postcss-loader": "^0.9.1",
+    "sass-loader": "^4.0.0",
+    "style-loader": "^0.13.1",
     "webpack": "^1.13.1",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.12.2"

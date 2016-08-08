@@ -3,7 +3,7 @@ const isEnumerable = Function.bind.call(Function.call, Object.prototype.property
 const concat = Function.bind.call(Function.call, Array.prototype.concat);
 const keys = Reflect.ownKeys;
 
-console.log("Trying to patch object.values");
+console.log("[POLYFILL] Patching object.values");
 
 if (!Object.values) {
 	Object.values = function values(O) {

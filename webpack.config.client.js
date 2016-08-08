@@ -1,15 +1,17 @@
 const { join } = require('path');
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
 const prod = process.env.NODE_ENV === "production";
 console.log(`Compiling client code with production set (${prod})`);
 
 module.exports = {
 	entry: !prod ? (
-		['webpack-hot-middleware/client', join(__dirname, './src/libraries/polyfills.js'), join(__dirname, './src/crossover/entry.js')]
+		['webpack-hot-middleware/client', join(__dirname, './src/utils/polyfills.js'), join(__dirname, './src/crossover/entry.js')]
 	) : (
 	{
-		js: [join(__dirname, './src/libraries/polyfills.js'), './src/crossover/entry.js'],
+		js: [join(__dirname, './src/utils/polyfills.js'), './src/crossover/entry.js'],
 		vendor: ['react', 'react-dom'],
 	}
 	),
@@ -30,6 +32,10 @@ module.exports = {
 					'babel-loader',
 				],
 			},
+			{
+				test: /\.scss/,
+				loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!sass-loader'),
+			},
 		],
 	},
 	plugins: !prod ? ([
@@ -40,6 +46,7 @@ module.exports = {
 				BABEL_ENV: JSON.stringify('client-dev'),
 			},
 		}),
+		new ExtractTextPlugin("styles.css"),
 	]) : ([
 		new webpack.optimize.CommonsChunkPlugin({
 			name: 'vendor',
@@ -61,5 +68,7 @@ module.exports = {
 				BABEL_ENV: JSON.stringify('client-build'),
 			},
 		}),
+		new ExtractTextPlugin("styles.css"),
 	]),
-}
+	postcss: [ autoprefixer({ browsers: ['> 1%','last 2 versions','Opera >= 12','Chrome >= 25','Firefox >= 13','ie >= 9']}) ],
+};
