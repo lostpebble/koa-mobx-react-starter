@@ -6,10 +6,10 @@ console.log(`Compiling client code with production set (${prod})`);
 
 module.exports = {
 	entry: !prod ? (
-		['webpack-hot-middleware/client', join(__dirname, './src/crossover/entry.js')]
+		['webpack-hot-middleware/client', join(__dirname, './src/libraries/polyfills.js'), join(__dirname, './src/crossover/entry.js')]
 	) : (
 	{
-		js: ['./src/crossover/entry.js'],
+		js: [join(__dirname, './src/libraries/polyfills.js'), './src/crossover/entry.js'],
 		vendor: ['react', 'react-dom'],
 	}
 	),

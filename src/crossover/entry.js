@@ -1,7 +1,3 @@
-// Polyfills
-import objectValuesPolyfill from '../libraries/polyfills/objectValuesPolyfill';
-objectValuesPolyfill();
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'mobx-react';
