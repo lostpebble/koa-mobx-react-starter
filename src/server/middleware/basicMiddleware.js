@@ -39,12 +39,13 @@ export function developmentMiddleware() {
 
 	// THIS CAUSES A "vendor.bundle.js:1 Uncaught SyntaxError: Unexpected identifier"
 	// ERROR, BUT BETTER THAN THE BROWSER TRYING AND NEVER FINDING THE FILE
-	const mockVendorBundle = async(ctx, next) => {
-		if (ctx.path === '/dist/vendor.bundle.js') {
+	const mockProductionFiles = async(ctx, next) => {
+		if (ctx.path === '/dist/vendor.bundle.js' || ctx.path === '/dist/styles.css') {
 			ctx.body =
-				"Mocked vendor.bundle.js for development " +
+				"Mocked files for development " +
 				"(not using separate bundle files for vendor" +
-				" and app code in development mode)";
+				" and app code in development mode or separate" +
+				" files for styles either)";
 		} else {
 			await next();
 		}
@@ -59,7 +60,7 @@ export function developmentMiddleware() {
 	// console.dir(devConfigBuilt);
 
 	return compose([
-		mockVendorBundle,
+		mockProductionFiles,
 		devMiddleware(compile, {
 			noInfo: true,
 			publicPath: devConfigBuilt.output.publicPath,

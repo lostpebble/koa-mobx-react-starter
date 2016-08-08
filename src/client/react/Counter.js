@@ -1,8 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { observer } from 'mobx-react';
 
-// import CounterStore from '../../crossover/mobx/stores/CounterStore';
-
 @observer(["CounterStore"])
 class Counter extends Component {
 
@@ -20,7 +18,7 @@ class Counter extends Component {
 
   render() {
     return (
-      <h2>Counter: {this.props.CounterStore.value}</h2>
+      <div className="counter">Counter: <span className="value">{this.props.CounterStore.value}</span></div>
    );
   }
 }

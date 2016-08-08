@@ -33,8 +33,18 @@ module.exports = {
 				],
 			},
 			{
+				test: /\.(jpe?g|png|gif|svg)$/i,
+				loaders: ['file?context=src/_images&name=images/[path][name].[ext]', 'image-webpack?optimizationLevel=2'],
+				exclude: /node_modules/,
+				include: __dirname
+			},
+			{
 				test: /\.scss/,
-				loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!sass-loader'),
+				loader: prod ? (
+					ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!sass-loader')
+				) : (
+					'style!css!postcss!sass'
+				),
 			},
 		],
 	},

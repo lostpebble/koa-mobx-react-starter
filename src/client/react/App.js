@@ -32,9 +32,10 @@ export default class App extends Component {
     }
 
     // This is a rather contrived example, as the tab management
-    // should probably not be handled like this. There are better
+    // should not be handled like this. There are better
     // ways, such as having a parent <Tabs> component with separate child
     // <Tab> components to split the different views and control switching
+    // but that's out of the scope for this boilerplate
 
     return (
       <Layout tabs={[CTabs.USER, CTabs.COUNTER]}>

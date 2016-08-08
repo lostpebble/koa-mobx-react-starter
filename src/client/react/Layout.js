@@ -3,6 +3,8 @@ import { observer } from 'mobx-react';
 
 import { CTabs } from '../../crossover/constants/UIConstants';
 
+import logo from '../../images/logo.png';
+
 const tabText = {};
 tabText[CTabs.USER] = "User Profile";
 tabText[CTabs.COUNTER] = "Pointless Counter";
@@ -28,9 +30,12 @@ export default class Layout extends React.Component {
 		);
 
 		return (
-			<div className="tabs-block">
-				<div className=""></div>
-				{tabs}
+			<div className="layout">
+				<img src={logo} alt="Isn't it dainty?" />
+				<div className="tabs">{tabs}</div>
+				<div className="content">
+					{this.props.children}
+				</div>
 			</div>
 		);
 	}
