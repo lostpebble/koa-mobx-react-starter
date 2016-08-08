@@ -18,7 +18,13 @@ class Counter extends Component {
 
   render() {
     return (
-      <div className="counter">Counter: <span className="value">{this.props.CounterStore.value}</span></div>
+      <div className="content-block">
+        <div className="counter">
+          Counter: <span className="value">{this.props.CounterStore.value}</span>
+        </div>
+        <span className="extra-info">Starting value initialized on server (between 1 - 200)</span>
+      </div>
+
    );
   }
 }

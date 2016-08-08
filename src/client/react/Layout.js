@@ -3,7 +3,8 @@ import { observer } from 'mobx-react';
 
 import { CTabs } from '../../crossover/constants/UIConstants';
 
-import logo from '../../images/logo.png';
+import { imageRequire } from '../../utils/universalRequire';
+const logo = imageRequire('logo.png');
 
 const tabText = {};
 tabText[CTabs.USER] = "User Profile";

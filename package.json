@@ -18,6 +18,7 @@
     "babel-register": "^6.11.6",
     "bluebird": "^3.4.1",
     "express": "^4.14.0",
+    "isomorphic-fetch": "^2.2.1",
     "koa": "^2.0.0-alpha.4",
     "koa-compose": "^3.1.0",
     "koa-compress": "^2.0.0",

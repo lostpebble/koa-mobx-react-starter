@@ -23,6 +23,7 @@ body {
     margin: 1em auto 2em auto;
     max-width: 100%;
     display: block;
+    opacity: 0.8;
   }
 
   .tabs {
@@ -46,6 +47,10 @@ body {
 
       transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
 
+      &:hover {
+        color: darken($primary-light-blue, 37);
+      }
+
       &.selected {
         background: $primary-light-blue;
         color: $primary-text;
@@ -57,7 +62,7 @@ body {
     background: $primary-light-blue;
     background: linear-gradient(to bottom, $primary-light-blue, darken($primary-light-blue, 20));
     flex-grow: 1;
-    min-height: 5em;
+    flex-shrink: 0;
 
     display: flex;
     flex-direction: column;
@@ -66,8 +71,68 @@ body {
   }
 }
 
+.content-block {
+  position: relative;
+  color: white;
+  text-shadow: 0 0 4px darken($primary-light-blue, 30);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .counter {
+  display: inline-block;
   font-size: 1.5em;
   color: white;
   text-shadow: 0 0 4px darken($primary-light-blue, 30);
+  padding: 1em;
+  border: 3px solid white;
+  border-radius: 5em;
+}
+
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .user-name {
+    text-transform: capitalize;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+
+  img {
+    margin: 1em 0;
+    border-radius: 100%;
+    border: 3px solid white;
+  }
+}
+
+.extra-info {
+  display: block;
+  margin-top: 2em;
+  width: 100%;
+  max-width: 25em;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 0.7em;
+  color: white;
+  text-shadow: 0 0 3px darken($primary-light-blue, 40);
+}
+
+button {
+  padding: 1em 1.5em;
+  background: white;
+  border-radius: 5em;
+  margin: 1.5em;
+  font-weight: lighter;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
+  &:hover {
+    color: darken($primary-light-blue, 47);
+    opacity: 1;
+  }
 }

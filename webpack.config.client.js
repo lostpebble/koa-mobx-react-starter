@@ -8,10 +8,10 @@ console.log(`Compiling client code with production set (${prod})`);
 
 module.exports = {
 	entry: !prod ? (
-		['webpack-hot-middleware/client', join(__dirname, './src/utils/polyfills.js'), join(__dirname, './src/crossover/entry.js')]
+		['webpack-hot-middleware/client', 'isomorphic-fetch', join(__dirname, './src/utils/polyfills.js'), join(__dirname, './src/crossover/entry.js')]
 	) : (
 	{
-		js: [join(__dirname, './src/utils/polyfills.js'), './src/crossover/entry.js'],
+		js: [join(__dirname, './src/utils/polyfills.js'), 'isomorphic-fetch', './src/crossover/entry.js'],
 		vendor: ['react', 'react-dom'],
 	}
 	),
@@ -34,7 +34,7 @@ module.exports = {
 			},
 			{
 				test: /\.(jpe?g|png|gif|svg)$/i,
-				loaders: ['file?context=src/_images&name=images/[path][name].[ext]', 'image-webpack?optimizationLevel=2'],
+				loaders: ['file?context=src/images&name=images/[path][name].[ext]', 'image-webpack?optimizationLevel=2'],
 				exclude: /node_modules/,
 				include: __dirname
 			},

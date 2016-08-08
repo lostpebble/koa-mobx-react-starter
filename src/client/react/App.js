@@ -1,10 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { observer } from 'mobx-react';
 
-// import Layout from './Layout';
 import Counter from './Counter';
 import UserProfile from './UserProfile';
 import Layout from './Layout';
+
+// import DevTools from 'mobx-react-devtools';
 
 import { CTabs } from '../../crossover/constants/UIConstants';
 
