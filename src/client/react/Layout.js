@@ -4,9 +4,10 @@ import { observer } from 'mobx-react';
 import { CTabs } from '../../crossover/constants/UIConstants';
 
 import { imageRequire } from '../../utils/universalRequire';
-const logo = imageRequire('logo.png');
 
 import { GithubIcon } from './svg/svgIcons';
+
+const logo = imageRequire('logo.png');
 
 const tabText = {};
 tabText[CTabs.USER] = "User Profile";
