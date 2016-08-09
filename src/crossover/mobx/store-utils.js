@@ -6,7 +6,7 @@ import AllStores from './allStores';
 
 // Creating and hydrating stores in this way saves
 // time, and only requires that we remember to put
-// our stores in the "AllStores" file imported above
+// our stores in the "allStores.js" file imported above
 
 export function getFreshStores() {
 	const freshStores = {};

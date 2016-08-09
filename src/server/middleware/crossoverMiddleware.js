@@ -1,7 +1,6 @@
 import { renderToString } from 'react-dom/server';
 
 import { baseReact } from '../../crossover/entry';
-
 import { getFreshStores } from '../../crossover/mobx/store-utils';
 
 export function injectState() {

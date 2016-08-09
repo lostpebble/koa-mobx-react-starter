@@ -1,12 +1,13 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-
-import { CTabs } from '../../crossover/constants/UIConstants';
-
 import { imageRequire } from '../../utils/universalRequire';
 
+import { CTabs } from '../../crossover/constants/UIConstants';
 import { GithubIcon } from './svg/svgIcons';
 
+// for the server return a reference to the
+// path for this image. Otherwise, deal with
+// it as a normal webpack import
 const logo = imageRequire('logo.png');
 
 const tabText = {};
@@ -14,11 +15,9 @@ tabText[CTabs.USER] = "User Profile";
 tabText[CTabs.COUNTER] = "Pointless Counter";
 
 @observer(['UIStore'])
-export default class Layout extends React.Component {
+export default class TabbedLayout extends React.Component {
 
 	_onClickTab(value) {
-		console.log("Clicking tab");
-
 		this.props.UIStore.setTab(value);
 	}
 
@@ -46,7 +45,7 @@ export default class Layout extends React.Component {
 	}
 }
 
-Layout.wrappedComponent.propTypes = {
+TabbedLayout.wrappedComponent.propTypes = {
 	tabs: React.PropTypes.array.isRequired,
 	UIStore: React.PropTypes.object.isRequired,
 };

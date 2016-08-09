@@ -9,7 +9,6 @@ import { createStoresFromState } from '../crossover/mobx/store-utils';
  +*  This function is important for the crossover between server and client (isomorphic / universal).
  +*  It defines a single, identical starting point for ReactJS page layout on both sides.
  +* */
-
 export function baseReact(stores) {
   return (
     <Provider { ...stores }>

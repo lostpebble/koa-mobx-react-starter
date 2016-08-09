@@ -1,5 +1,7 @@
 import { observable, action } from 'mobx';
 
+import { getRandomNumber } from '../../api/fakeDataApi';
+
 export default class CounterStore {
 	@observable value = 0;
 
@@ -14,19 +16,8 @@ export default class CounterStore {
 	@action setValue(value) {
 		this.value = value;
 	}
+
+	@action async setRandomNumber() {
+		this.setValue(await getRandomNumber());
+	}
 }
-
-// const singleton = new CounterStore();
-// export default singleton;
-
-/*
-const counterStore = observable({
-	counterValue: 0,
-});
-
-counterStore.incrementCount = action(() => {
-	counterStore.counterValue++;
-});
-
-export default counterStore;
-*/

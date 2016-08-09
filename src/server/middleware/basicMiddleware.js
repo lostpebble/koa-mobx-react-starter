@@ -3,6 +3,7 @@ import mount from 'koa-mount';
 import serve from 'koa-static';
 import compress from 'koa-compress';
 import logger from 'koa-logger';
+import favicon from 'koa-favicon';
 
 import webpack from 'webpack';
 import { devMiddleware, hotMiddleware } from 'koa-webpack-middleware';
@@ -30,8 +31,9 @@ export function compressResponse() {
 export function serveStaticFiles() {
 	const staticFolder = mount('/static', serve(`${__dirname}/../static`));
 	const distFolder = mount('/dist', serve(`${__dirname}/../../../dist`));
+	const fav = favicon(`${__dirname}/../static/favicon/favicon.ico`);
 
-	return compose([staticFolder, distFolder]);
+	return compose([fav, staticFolder, distFolder]);
 }
 
 export function developmentMiddleware() {
@@ -51,19 +53,13 @@ export function developmentMiddleware() {
 		}
 	};
 
-	// FOR WEBPACK v2
-	// const devConfigBuilt = devConfig({ env: { prod: false } });
-
-	const devConfigBuilt = devConfig;
-	const compile = webpack(devConfigBuilt);
-
-	// console.dir(devConfigBuilt);
+	const compile = webpack(devConfig);
 
 	return compose([
 		mockProductionFiles,
 		devMiddleware(compile, {
 			noInfo: true,
-			publicPath: devConfigBuilt.output.publicPath,
+			publicPath: devConfig.output.publicPath,
 		}),
 		hotMiddleware(compile),
 	]);
