@@ -26,12 +26,14 @@ body {
     max-width: 100%;
     display: block;
     opacity: 0.8;
+    flex-shrink: 0;
   }
 
   .blurb {
     color: darken($primary-light-blue, 19);
     margin-bottom: 4em;
     display: flex;
+    flex-shrink: 0;
     flex-direction: row;
     align-items: center;
 
@@ -89,7 +91,7 @@ body {
   .content {
     width: 100%;
     background: $primary-light-blue;
-    background: linear-gradient(to bottom, $primary-light-blue, darken($primary-light-blue, 20));
+    background: linear-gradient(to bottom, $primary-light-blue, desaturate(darken($primary-light-blue, 25), 20));
     flex-grow: 1;
     flex-shrink: 0;
 
@@ -103,7 +105,7 @@ body {
 .content-block {
   position: relative;
   color: white;
-  text-shadow: 0 0 4px darken($primary-light-blue, 30);
+  text-shadow: 0 0 4px darken($primary-light-blue, 40);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -119,18 +121,65 @@ body {
   border-radius: 5em;
 }
 
+@keyframes loading-opacity {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
 .user-profile {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 2em;
+  border-bottom: 3px solid desaturate(darken($primary-light-blue, 27), 30);
+  color: $primary-text;
+  padding: 1em 2em;
+  border-radius: 0.5em;
+  text-transform: capitalize;
+  text-shadow: 0 0 4px darken($primary-light-blue, 40);
+  background: linear-gradient(to bottom, lighten($primary-light-blue, 6), desaturate(darken($primary-light-blue, 20), 25));
+  transition: opacity 0.3s ease-in-out;
+
+  &.loading {
+    animation: 0.4s linear loading-opacity;
+    animation-fill-mode: forwards;
+  }
 
   .user-name {
-    text-transform: capitalize;
     font-size: 1.5em;
     font-weight: bold;
+    text-shadow: none;
+  }
+
+  .user-phone, .user-address {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 0.5em;
+    color: white;
+
+    svg {
+      fill: white;
+      margin-right: 0.5em;
+      width: 1.5em;
+      height: 1.5em;
+    }
+  }
+
+  .user-address {
+    font-size: 0.8em;
   }
 
   img {
+    height: 120px;
+    width: 120px;
+    background: lighten($primary-light-blue, 6);
+    overflow: hidden;
     margin: 1em 0;
     border-radius: 100%;
     border: 3px solid white;
@@ -146,7 +195,6 @@ body {
   text-transform: uppercase;
   font-size: 0.7em;
   color: white;
-  text-shadow: 0 0 3px darken($primary-light-blue, 40);
 }
 
 button {

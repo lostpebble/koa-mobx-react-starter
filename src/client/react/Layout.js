@@ -6,7 +6,7 @@ import { CTabs } from '../../crossover/constants/UIConstants';
 import { imageRequire } from '../../utils/universalRequire';
 const logo = imageRequire('logo.png');
 
-import { GithubIcon } from './svgIcons';
+import { GithubIcon } from './svg/svgIcons';
 
 const tabText = {};
 tabText[CTabs.USER] = "User Profile";
@@ -35,7 +35,7 @@ export default class Layout extends React.Component {
 		return (
 			<div className="layout">
 				<img src={logo} alt="Isn't it dainty?" />
-				<a target="_blank" href="https://github.com/lostpebble/koa-mobx-react-bootstrap" className="blurb"><GithubIcon/>koa-mobx-react-bootstrap</a>
+				<a target="_blank" href="https://github.com/lostpebble/koa-mobx-react-starter" className="blurb"><GithubIcon/>koa-mobx-react-starter</a>
 				<div className="tabs">{tabs}</div>
 				<div className="content">
 					{this.props.children}

@@ -8,10 +8,10 @@ console.log(`Compiling client code with production set (${prod})`);
 
 module.exports = {
 	entry: !prod ? (
-		['webpack-hot-middleware/client', 'isomorphic-fetch', join(__dirname, './src/utils/polyfills.js'), join(__dirname, './src/crossover/entry.js')]
+		['webpack-hot-middleware/client', 'isomorphic-fetch', 'regenerator-runtime/runtime', join(__dirname, './src/utils/polyfills.js'), join(__dirname, './src/crossover/entry.js')]
 	) : (
 	{
-		js: [join(__dirname, './src/utils/polyfills.js'), 'isomorphic-fetch', './src/crossover/entry.js'],
+		js: [join(__dirname, './src/utils/polyfills.js'), 'isomorphic-fetch', 'regenerator-runtime/runtime', './src/crossover/entry.js'],
 		vendor: ['react', 'react-dom'],
 	}
 	),

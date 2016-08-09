@@ -8,12 +8,14 @@
   "rules": {
     "indent": 0,
     "react/jsx-indent": 0,
+    "react/jsx-space-before-closing": 0,
     "no-console": 0,
     "no-param-reassign": 0,
     "no-trailing-spaces": [2, {
       "skipBlankLines": true
     }],
     "quotes": 0,
-    "max-len": 0
+    "max-len": 0,
+    "no-underscore-dangle": 0
   }
 }

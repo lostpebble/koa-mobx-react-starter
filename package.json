@@ -60,6 +60,7 @@
     "mobx-react-devtools": "^4.2.4",
     "node-sass": "^3.8.0",
     "postcss-loader": "^0.9.1",
+    "regenerator-runtime": "^0.9.5",
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.1",
