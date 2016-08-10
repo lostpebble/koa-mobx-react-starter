@@ -1,7 +1,8 @@
 {
-  "name": "koa-server-rendering",
+  "name": "koa-mobx-react-starter",
   "version": "1.0.0",
-  "description": "",
+  "repository": "https://github.com/lostpebble/koa-mobx-react-bootstrap",
+  "description": "A straightforward starter for Node javascript web projects. Using Koa, MobX, Pug and ReactJS (with universal / isomorphic server rendering)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -58,7 +59,6 @@
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.1",
-    "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.12.2"
   }
 }
