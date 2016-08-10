@@ -36,7 +36,7 @@ module.exports = {
 				test: /\.(jpe?g|png|gif|svg)$/i,
 				loaders: ['file?context=src/images&name=images/[path][name].[ext]', 'image-webpack?optimizationLevel=2'],
 				exclude: /node_modules/,
-				include: __dirname
+				include: __dirname,
 			},
 			{
 				test: /\.scss/,
@@ -81,5 +81,5 @@ module.exports = {
 		}),
 		new ExtractTextPlugin("styles.css"),
 	]),
-	postcss: [ autoprefixer({ browsers: ['> 1%','last 2 versions','Opera >= 12','Chrome >= 25','Firefox >= 13','ie >= 9']}) ],
+	postcss: [autoprefixer({ browsers: ['> 1%', 'last 2 versions', 'Opera >= 12', 'Chrome >= 25', 'Firefox >= 13', 'ie >= 9'] })],
 };

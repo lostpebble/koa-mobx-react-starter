@@ -39,12 +39,13 @@ export function developmentMiddleware() {
 	console.log("Development environment, starting HMR");
 	const devConfig = require('../../../webpack.config.client');
 
-	// THIS CAUSES A "vendor.bundle.js:1 Uncaught SyntaxError: Unexpected identifier"
-	// ERROR, BUT BETTER THAN THE BROWSER TRYING AND NEVER FINDING THE FILE
+	// Need to mock these files for development, because our Pug template
+	// will be looking for them, but they're actually all bundled up into one
+	// file during development with webpack and hot reloading
 	const mockProductionFiles = async(ctx, next) => {
 		if (ctx.path === '/dist/vendor.bundle.js' || ctx.path === '/dist/styles.css') {
 			ctx.body =
-				"Mocked files for development " +
+				"//Mocked files for development " +
 				"(not using separate bundle files for vendor" +
 				" and app code in development mode or separate" +
 				" files for styles either)";
