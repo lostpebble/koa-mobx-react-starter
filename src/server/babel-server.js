@@ -1,3 +1,5 @@
+// ensure that for all server imports, we're
+// using the server babel settings
 process.env.BABEL_ENV = "server";
 
 require('babel-register');

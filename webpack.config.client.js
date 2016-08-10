@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 const prod = process.env.NODE_ENV === "production";
-console.log(`Compiling client code with production set (${prod})`);
+console.log(`Compiling client code with production set to "${prod}"`);
 
 module.exports = {
 	entry: !prod ? (
@@ -63,6 +63,7 @@ module.exports = {
 			minChunks: Infinity,
 			filename: 'vendor.bundle.js',
 		}),
+		new webpack.optimize.DedupePlugin(),
 		new webpack.optimize.UglifyJsPlugin({
 			compress: {
 				warnings: false,

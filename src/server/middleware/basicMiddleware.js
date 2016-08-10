@@ -7,7 +7,6 @@ import favicon from 'koa-favicon';
 
 import webpack from 'webpack';
 import { devMiddleware, hotMiddleware } from 'koa-webpack-middleware';
-import devConfig from '../../../webpack.config.client';
 
 export function baseErrorHandling() {
 	return async (ctx, next) => {
@@ -38,6 +37,7 @@ export function serveStaticFiles() {
 
 export function developmentMiddleware() {
 	console.log("Development environment, starting HMR");
+	const devConfig = require('../../../webpack.config.client');
 
 	// THIS CAUSES A "vendor.bundle.js:1 Uncaught SyntaxError: Unexpected identifier"
 	// ERROR, BUT BETTER THAN THE BROWSER TRYING AND NEVER FINDING THE FILE
