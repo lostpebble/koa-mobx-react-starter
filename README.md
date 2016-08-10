@@ -1,6 +1,6 @@
 # koa-mobx-react-starter
 
-![the Jackson Pollock of github logos](https://raw.github.com/lostpebble/koa-mobx-react-starter/master/src/images/logo.png?raw=true "Koa MobX React Goodness")
+![the Jackson Pollock of github logos](https://raw.github.com/lostpebble/koa-mobx-react-starter/master/src/images/screenshot.png?raw=true "Koa MobX React Goodness")
 
 Along with aiming to use the bleeding-edge of JavaScript (within reason- and all thanks to [Babel](https://babeljs.io/)), this repository represents a choice of frameworks and libraries I think work well together for an enjoyable NodeJS and frontend coding experience.
 
