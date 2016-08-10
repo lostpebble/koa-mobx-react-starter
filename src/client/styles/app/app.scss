@@ -121,16 +121,6 @@ body {
   border-radius: 5em;
 }
 
-@keyframes loading-opacity {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
 .user-profile {
   display: flex;
   flex-direction: column;
@@ -143,11 +133,12 @@ body {
   text-transform: capitalize;
   text-shadow: 0 0 4px darken($primary-light-blue, 40);
   background: linear-gradient(to bottom, lighten($primary-light-blue, 6), desaturate(darken($primary-light-blue, 20), 25));
-  transition: opacity 0.3s ease-in-out;
+
+  opacity: 1;
+  transition: opacity 0.4s ease-in-out;
 
   &.loading {
-    animation: 0.4s linear loading-opacity;
-    animation-fill-mode: forwards;
+    opacity: 0;
   }
 
   .user-name {
