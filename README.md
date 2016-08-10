@@ -40,7 +40,7 @@ Or for quick production testing `npm run buildstart`
 
 Before deployment to a production server, your code should always be built first- so that the default `npm start` can be used to spin up quickly.
 
-##Important Configuration Information
+##Some Extra Configuration Information
 
 ~~I've used a file watcher built into WebStorm to automatically process my ES2016/2017 server code through Babel so that it always stays up to date and runs without much hassle on Node. This is configured in the IDE, but can also be achieved with many other methods of your choice (manually through `babel-cli` with the `--watch` option for example).~~
 
