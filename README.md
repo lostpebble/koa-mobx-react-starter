@@ -10,8 +10,8 @@ A short rundown of the various technologies:
 - [Pug](https://github.com/pugjs) (formerly Jade) for views - Concise HTML view engine, into which we slot in our React-generated HTML
 
 ###Crossover
-- [MobX](https://github.com/mobxjs/mobx "MobX") - Hold state initially on the server, and then pass it over to the client
-- [ReactJS](https://facebook.github.io/react/) - Build views on the server and inject functionality into those already built views on the client
+- [MobX](https://github.com/mobxjs/mobx "MobX") - Awesome state management library, makes it so easy I feel like I'm cheating somehow. State stores initialized on the server, altered by some actions depending on request, and then passed over to the client to continue its state-altering journey.
+- [ReactJS](https://facebook.github.io/react/) - Build views on the server according to state and then inject functionality into those already built views on the client, and continue calling MobX actions and re-rendering accordingly
 
 ###Client
 - Javascript compiled with [Webpack](https://webpack.github.io/) - A bundler that reads your entry JavaScript and various other files and creates a distribution build of them (using various options and plugins) for efficient client-side delivery
