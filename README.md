@@ -149,9 +149,3 @@ Before deployment to a production server, your code should always be built first
 ~~I've used a file watcher built into WebStorm to automatically process my ES2016/2017 server code through Babel so that it always stays up to date and runs without much hassle on Node. This is configured in the IDE, but can also be achieved with many other methods of your choice (manually through `babel-cli` with the `--watch` option for example).~~
 
 Since the above method became more complicated upon trying to make my server files more modular and separated, I'm now using the `babel-register` module which is required before any other server code and automatically converts any further requires / imports to ES5 javascript. Once NodeJS officially supports import / export and async functions, this shouldn't be a problem any more.
-
-Also, there is an `.eslint` file included with the configuration used for this project, but I run my linting globally so you will have to set up your own linting accordingly. To make it easier, to install the modules I use for ESLint you can do: 
-
-```
-npm install --save-dev babel-eslint@6 eslint-config-airbnb eslint@^2.9.0 eslint-plugin-jsx-a11y@^1.2.0 eslint-plugin-import@^1.7.0 eslint-plugin-react@^5.0.1
-```
