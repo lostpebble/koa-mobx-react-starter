@@ -3,7 +3,7 @@
 ![the Jackson Pollock of github logos](https://raw.github.com/lostpebble/koa-mobx-react-starter/master/src/images/screenshot.png?raw=true "Koa MobX React Goodness")
 
 Along with aiming to use the bleeding-edge of JavaScript (within reason- and all thanks to [Babel](https://babeljs.io/)), this repository represents a choice of frameworks and libraries I think work well together for an enjoyable NodeJS and frontend coding experience.
-
+####Now with React-Router too!
 A short rundown of the various technologies:
 ###Server
 - [Koa](http://koajs.com/) - A Node server framework with an eye on the future, using the async-await syntax. Server code compiled back to a widely adopted standard of JavaScript using Babel.
@@ -12,6 +12,7 @@ A short rundown of the various technologies:
 ###Crossover
 - [MobX](https://github.com/mobxjs/mobx "MobX") - Awesome state management library, makes it so easy I feel like I'm cheating somehow. State stores initialized on the server, altered by some actions depending on request, and then passed over to the client to continue its state-altering journey.
 - [ReactJS](https://facebook.github.io/react/) - Build views on the server according to state and then inject functionality into those already built views on the client, and continue calling MobX actions and re-rendering accordingly
+- [React-Router](https://github.com/ReactTraining/react-router) - A routing solution for ReactJS. Works great with server-side rendering too, catching all possible routes we may want to render.
 
 ###Client
 - Javascript compiled with [Webpack](https://webpack.github.io/) - A bundler that reads your entry JavaScript and various other files and creates a distribution build of them (using various options and plugins) for efficient client-side delivery
