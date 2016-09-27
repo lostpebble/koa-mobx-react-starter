@@ -4,6 +4,6 @@
 // Hence "TAB_COUNTER" instead of just "COUNTER"
 
 export const CTabs = {
-	USER: "TAB_USER_PROFILE",
-	COUNTER: "TAB_COUNTER",
+  USER: "TAB_USER_PROFILE",
+  COUNTER: "TAB_COUNTER",
 };

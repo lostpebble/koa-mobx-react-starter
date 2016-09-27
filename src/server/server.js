@@ -5,16 +5,16 @@ import Pug from 'koa-pug';
 import router from './router';
 
 import {
-	serverLogging,
-	baseErrorHandling,
-	serveStaticFiles,
-	developmentMiddleware,
-	compressResponse,
+  serverLogging,
+  baseErrorHandling,
+  serveStaticFiles,
+  developmentMiddleware,
+  compressResponse,
 } from './middleware/basicMiddleware';
 
 import {
-	injectState,
-	renderReact,
+  injectState,
+  renderReact,
 } from './middleware/crossoverMiddleware';
 
 // check for production, mainly used to disable
@@ -30,13 +30,13 @@ pug.use(app);
 
 // Development stuff (enable Webpack hot reloading)
 if (!prod) {
-	// Ensure that for building the client code,
-	// we're using the client babel settings
-	process.env.BABEL_ENV = 'client-dev';
+  // Ensure that for building the client code,
+  // we're using the client babel settings
+  process.env.BABEL_ENV = 'client-dev';
 
-	app.use(developmentMiddleware());
+  app.use(developmentMiddleware());
 } else {
-	console.log("Production environment");
+  console.log("Production environment");
 }
 
 app.use(serverLogging());

@@ -25,7 +25,7 @@ class Counter extends Component {
         <span className="extra-info">Starting value initialized on server (between 1 - 200)</span>
       </div>
 
-   );
+    );
   }
 }
 

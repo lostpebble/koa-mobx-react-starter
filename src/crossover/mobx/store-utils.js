@@ -9,21 +9,21 @@ import AllStores from './allStores';
 // our stores in the "allStores.js" file imported above
 
 export function getFreshStores() {
-	const freshStores = {};
+  const freshStores = {};
 
-	Object.keys(AllStores).forEach((value) => {
-		freshStores[value] = new AllStores[value];
-	});
+  Object.keys(AllStores).forEach((value) => {
+    freshStores[value] = new AllStores[value];
+  });
 
-	return freshStores;
+  return freshStores;
 }
 
 export function createStoresFromState(state) {
-	const createdStores = {};
+  const createdStores = {};
 
-	Object.keys(AllStores).forEach((value) => {
-		createdStores[value] = new AllStores[value](state[value]);
-	});
+  Object.keys(AllStores).forEach((value) => {
+    createdStores[value] = new AllStores[value](state[value]);
+  });
 
-	return createdStores;
+  return createdStores;
 }

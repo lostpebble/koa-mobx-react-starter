@@ -5,10 +5,19 @@
     "node": true
   },
   "extends" : "airbnb",
+  "plugins": [
+    "babel"
+  ],
   "rules": {
+    "arrow-parens": 0,
+    "generator-star-spacing": 0,
     "indent": 0,
+    "class-methods-use-this": 0,
     "react/jsx-indent": 0,
     "react/jsx-space-before-closing": 0,
+    "react/prefer-stateless-function": 0,
+    "react/jsx-indent-props": 0,
+    "react/jsx-filename-extension": 0,
     "no-console": 0,
     "no-param-reassign": 0,
     "no-trailing-spaces": [2, {
@@ -16,6 +25,15 @@
     }],
     "quotes": 0,
     "max-len": 0,
-    "no-underscore-dangle": 0
+    "no-underscore-dangle": 0,
+    "global-require": 0,
+    "arrow-body-style": 0,
+    "no-duplicate-imports": 0,
+    "camelcase": 0,
+    "import/no-extraneous-dependencies": 0,
+
+    "babel/generator-star-spacing": 1,
+    "babel/arrow-parens": 0,
+    "babel/no-await-in-loop": 1
   }
 }

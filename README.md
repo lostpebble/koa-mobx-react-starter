@@ -36,6 +36,9 @@ A short rundown of the various technologies:
         <li>
           <code>/svg</code> - SVG React components. Placed directly in the code as if they were normal functional React components. Much easier to incorporate into layouts. They're usually very small in size (1-3kb) so it's not a data hog and means they load instantly with SSR too.
         </li>
+        <li>
+          <code>/routes</code> - The React-Router defined routes for our app
+        </li>
       </ul>
       <code>/styles</code>
       <ul>

@@ -3,21 +3,22 @@ import { observable, action } from 'mobx';
 import { getRandomNumber } from '../../api/fakeDataApi';
 
 export default class CounterStore {
-	@observable value = 0;
+  @observable value = 0;
 
-	constructor(initialState) {
-		Object.assign(this, initialState);
-	}
+  constructor(initialState) {
+    Object.assign(this, initialState);
+  }
 
-	@action incrementValue() {
-		this.value++;
-	}
+  @action incrementValue() {
+    this.value++;
+  }
 
-	@action setValue(value) {
-		this.value = value;
-	}
+  @action setValue(value) {
+    this.value = value;
+  }
 
-	@action async setRandomNumber() {
-		this.setValue(await getRandomNumber());
-	}
+  @action
+  async setRandomNumber() {
+    this.setValue(await getRandomNumber());
+  }
 }

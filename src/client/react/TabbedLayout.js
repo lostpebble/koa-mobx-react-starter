@@ -17,35 +17,35 @@ tabText[CTabs.COUNTER] = "Pointless Counter";
 @observer(['UIStore'])
 export default class TabbedLayout extends React.Component {
 
-	_onClickTab(value) {
-		this.props.UIStore.setTab(value);
-	}
+  _onClickTab(value) {
+    this.props.UIStore.setTab(value);
+  }
 
-	render() {
-		const tabs = this.props.tabs.map((value, index) =>
-				<div
-					onClick={this._onClickTab.bind(this, value)}
-					className={`tab tab-${index}${value === this.props.UIStore.currentTab ? " selected" : ""}`}
-					key={index}
-				>
-					{tabText[value]}
-				</div>
-		);
+  render() {
+    const tabs = this.props.tabs.map((value, index) =>
+      <div
+        onClick={this._onClickTab.bind(this, value)}
+        className={`tab tab-${index}${value === this.props.UIStore.currentTab ? " selected" : ""}`}
+        key={index}
+      >
+        {tabText[value]}
+      </div>
+    );
 
-		return (
-			<div className="layout">
-				<img src={logo} alt="Isn't it dainty?" />
-				<a target="_blank" href="https://github.com/lostpebble/koa-mobx-react-starter" className="blurb"><GithubIcon/>koa-mobx-react-starter</a>
-				<div className="tabs">{tabs}</div>
-				<div className="content">
-					{this.props.children}
-				</div>
-			</div>
-		);
-	}
+    return (
+      <div className="layout">
+        <img src={logo} alt="Isn't it dainty?"/>
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/lostpebble/koa-mobx-react-starter" className="blurb"><GithubIcon/>koa-mobx-react-starter</a>
+        <div className="tabs">{tabs}</div>
+        <div className="content">
+          {this.props.children}
+        </div>
+      </div>
+    );
+  }
 }
 
 TabbedLayout.wrappedComponent.propTypes = {
-	tabs: React.PropTypes.array.isRequired,
-	UIStore: React.PropTypes.object.isRequired,
+  tabs: React.PropTypes.array.isRequired,
+  UIStore: React.PropTypes.object.isRequired,
 };

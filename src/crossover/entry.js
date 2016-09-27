@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'mobx-react';
-import App from '../client/react/App';
+
+import injectTapEvent from 'react-tap-event-plugin';
+
+import { Router, browserHistory } from 'react-router';
+import { routes } from '../client/react/routes/routes';
 
 import { createStoresFromState } from '../crossover/mobx/store-utils';
 
@@ -9,10 +13,10 @@ import { createStoresFromState } from '../crossover/mobx/store-utils';
  +*  This function is important for the crossover between server and client (isomorphic / universal).
  +*  It defines a single, identical starting point for ReactJS page layout on both sides.
  +* */
-export function baseReact(stores) {
+export function baseReact(stores, router) {
   return (
     <Provider { ...stores }>
-      <App />
+      {router}
     </Provider>
   );
 }
@@ -22,6 +26,7 @@ export function baseReact(stores) {
 // this code will throw an error because of the undefined document variable
 if (typeof document !== 'undefined') {
   require('../client/styles/entry.scss');
+  injectTapEvent();
 
   const rootEl = document.getElementById('root');
 
@@ -31,7 +36,7 @@ if (typeof document !== 'undefined') {
   // console.dir(stores);
 
   ReactDOM.render(
-    baseReact(stores),
+    baseReact(stores, <Router routes={routes} history={browserHistory}/>),
     rootEl
   );
 
