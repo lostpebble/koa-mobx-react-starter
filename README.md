@@ -65,8 +65,13 @@ A short rundown of the various technologies:
       </ul>
       <code>/constants</code>
       <ul>
+        <strike>
         <li>
           Pretty self explanatory, just constants to be used throughout the app. For now it's just different types of tabs. This allows us to think about certain parts of the UI as one, constant thing and therefore we can create things like language dictionaries that can be access according to a language constant and the UI constant but the components remain exactly the same.
+        </li>
+        </strike>
+        <li>
+          For now there are no constants, as before there used to be some to keep track of tabs- that is managed by the different routes in React-Router now. BUT constants are still a very important part of an app's ecosystem in order to maintain consistency between things. It is left here as an empty folder to be expanded upon.
         </li>
       </ul>
       <code>/mobx</code>

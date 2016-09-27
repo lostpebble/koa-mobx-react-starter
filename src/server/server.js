@@ -8,9 +8,13 @@ import {
   serverLogging,
   baseErrorHandling,
   serveStaticFiles,
-  developmentMiddleware,
   compressResponse,
 } from './middleware/basicMiddleware';
+
+import {
+  webpackMiddleware,
+  mockProductionStaticFiles,
+} from './middleware/developmentMiddleware';
 
 import {
   injectState,
@@ -34,7 +38,8 @@ if (!prod) {
   // we're using the client babel settings
   process.env.BABEL_ENV = 'client-dev';
 
-  app.use(developmentMiddleware());
+  app.use(mockProductionStaticFiles());
+  app.use(webpackMiddleware());
 } else {
   console.log("Production environment");
 }

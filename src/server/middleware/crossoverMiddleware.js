@@ -51,14 +51,5 @@ export function renderReact() {
         ctx.body = 'Not Found';
       }
     });
-    /*
-    const html = renderToString(
-      baseReact(ctx.state.mobx)
-    );
-
-    ctx.render('base', {
-      html,
-      initialState: JSON.stringify(ctx.state.mobx),
-    });*/
   };
 }
