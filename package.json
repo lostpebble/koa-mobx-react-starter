@@ -28,12 +28,12 @@
     "koa-pug": "^3.0.0-0",
     "koa-router": "^7.0.1",
     "koa-static": "^3.0.0",
-    "mobx": "^2.5.2",
-    "mobx-react": "^3.5.6",
+    "mobx": "^3.1.2",
+    "mobx-react": "^4.1.1",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
-    "react-router": "^2.8.1",
-    "react-tap-event-plugin": "^1.0.0"
+    "react-router": "^3.0.2",
+    "react-tap-event-plugin": "^2.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.0",
