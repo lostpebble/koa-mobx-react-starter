@@ -132,19 +132,25 @@ A short rundown of the various technologies:
 
 ##Get Going:
 
-For starters:
+####For starters:
 
 ```
 npm install
 ```
 
-Then to start the development server (which is what you want most of the time)
+Or, even better (if you are using `yarn`):
+```
+yarn install
+```
+
+####Then
+To start the development server (which is what you want most of the time)
 
 ```
 npm run dev
 ```
 
-And to start the production server is the usual `npm start`, but the code has to be built first, so:
+To start the production server is the usual `npm start`, but the code has to be built first, so:
 ```
 npm run build
 npm start
