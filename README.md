@@ -4,24 +4,24 @@
 
 Along with aiming to use the bleeding-edge of JavaScript (within reason- and all thanks to [Babel](https://babeljs.io/)), this repository represents a choice of frameworks and libraries I think work well together for an enjoyable NodeJS and frontend coding experience.
 
-####Now with React-Router too!
+#### Now with React-Router too!
 
 A short rundown of the various technologies:
 
-###Server
+### Server
 - [Koa](http://koajs.com/) - A Node server framework with an eye on the future, using the async-await syntax. Server code compiled back to a widely adopted standard of JavaScript using Babel.
 - [Pug](https://github.com/pugjs) (formerly Jade) for views - Concise HTML view engine, into which we slot in our React-generated HTML
 
-###Crossover
+### Crossover
 - [MobX](https://github.com/mobxjs/mobx "MobX") - Awesome state management library, makes it so easy I feel like I'm cheating somehow. State stores initialized on the server, altered by some actions depending on request, and then passed over to the client to continue its state-altering journey.
 - [ReactJS](https://facebook.github.io/react/) - Build views on the server according to state and then inject functionality into those already built views on the client, and continue calling MobX actions and re-rendering accordingly
 - [React-Router](https://github.com/ReactTraining/react-router) - A routing solution for ReactJS. Works great with server-side rendering too, catching all possible routes we may want to render.
 
-###Client
+### Client
 - Javascript compiled with [Webpack](https://webpack.github.io/) - A bundler that reads your entry JavaScript and various other files and creates a distribution build of them (using various options and plugins) for efficient client-side delivery
 - Client Javascript mostly involves more React and MobX goodness for great interaction
 
-##Folder and Module Structure
+## Folder and Module Structure
 
 <table>
   <tbody>
@@ -133,9 +133,9 @@ A short rundown of the various technologies:
   </tbody>
 </table>
 
-##Get Going:
+## Get Going:
 
-####For starters:
+#### For starters:
 
 ```
 npm install
@@ -146,7 +146,7 @@ Or, even better (if you are using `yarn`):
 yarn install
 ```
 
-####Then
+#### Then
 To start the development server (which is what you want most of the time)
 
 ```
@@ -162,7 +162,7 @@ Or for quick production testing `npm run buildstart`
 
 Before deployment to a production server, your code should always be built first- so that the default `npm start` can be used to spin up quickly.
 
-##Some Extra Configuration Information
+## Some Extra Configuration Information
 
 ~~I've used a file watcher built into WebStorm to automatically process my ES2016/2017 server code through Babel so that it always stays up to date and runs without much hassle on Node. This is configured in the IDE, but can also be achieved with many other methods of your choice (manually through `babel-cli` with the `--watch` option for example).~~
 
