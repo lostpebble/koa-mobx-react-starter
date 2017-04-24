@@ -1,7 +1,6 @@
 import 'babel-polyfill';
 
 import Koa from 'koa';
-import Pug from 'koa-pug';
 import router from './router';
 
 import {
@@ -27,10 +26,6 @@ import {
 const prod = process.env.NODE_ENV !== 'development';
 
 const app = new Koa();
-
-// Set the view engine (Pug)
-const pug = new Pug({ viewPath: './src/server/views' });
-pug.use(app);
 
 // Development stuff (enable Webpack hot reloading)
 if (!prod) {

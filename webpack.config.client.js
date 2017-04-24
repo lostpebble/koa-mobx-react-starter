@@ -9,18 +9,20 @@ console.log(`Compiling client code with production set to "${prod}"`);
 
 module.exports = {
   entry: !prod ? (
-    ['webpack-hot-middleware/client', 'isomorphic-fetch', 'regenerator-runtime/runtime', join(__dirname, './src/utils/polyfills.js'), join(__dirname, './src/crossover/entry.js')]
+    {
+      bundle: ['webpack-hot-middleware/client', 'isomorphic-fetch', 'regenerator-runtime/runtime', join(__dirname, './src/utils/polyfills.js'), join(__dirname, './src/crossover/entry.js')],
+    }
   ) : (
-  {
-    js: [join(__dirname, './src/utils/polyfills.js'), 'isomorphic-fetch', 'regenerator-runtime/runtime', './src/crossover/entry.js'],
-    vendor: ['react', 'react-dom'],
-  }
+    {
+      bundle: [join(__dirname, './src/utils/polyfills.js'), 'isomorphic-fetch', 'regenerator-runtime/runtime', './src/crossover/entry.js'],
+      vendor: ['react', 'react-dom'],
+    }
   ),
   target: 'web',
   output: {
     path: join(__dirname, 'dist'),
-    filename: 'bundle.js',
-    pathInfo: !prod,
+    filename: '[name].js',
+    pathinfo: !prod,
     publicPath: '/dist/',
   },
   devtool: prod ? 'source-map' : 'eval',
@@ -35,16 +37,41 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
-        loaders: ['file?context=src/images&name=images/[path][name].[ext]', 'image-webpack?optimizationLevel=2'],
+        loaders: ['file-loader?context=src/images&name=images/[path][name].[ext]', {
+          loader: 'image-webpack-loader',
+          query: {
+            mozjpeg: {
+              progressive: true,
+              quality: 80,
+            },
+            gifsicle: {
+              interlaced: false,
+            },
+            optipng: {
+              optimizationLevel: 4,
+            },
+            pngquant: {
+              quality: '75-90',
+              speed: 3,
+            },
+          },
+        }],
         exclude: /node_modules/,
         include: __dirname,
       },
       {
-        test: /\.scss/,
+        test: /\.s?css/,
         loader: prod ? (
-          ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!sass-loader')
+          ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            loader: [
+              'css-loader',
+              'postcss-loader',
+              'sass-loader',
+            ],
+          })
         ) : (
-          'style!css!postcss!sass'
+          'style-loader!css-loader!postcss-loader!sass-loader'
         ),
       },
     ],
@@ -57,17 +84,23 @@ module.exports = {
         BABEL_ENV: JSON.stringify('client-dev'),
       },
     }),
-    new ExtractTextPlugin("styles.css"),
-  ]) : ([
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: Infinity,
-      filename: 'vendor.bundle.js',
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        postcss: [autoprefixer({ browsers: ['> 1%', 'last 2 versions', 'Opera >= 12', 'Chrome >= 25', 'Firefox >= 13', 'ie >= 9'] })],
+      },
     }),
-    new webpack.optimize.DedupePlugin(),
+  ]) : ([
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+      debug: false,
+    }),
     new webpack.optimize.UglifyJsPlugin({
+      beautify: false,
+      mangle: true,
+      screw_ie8: true,
       compress: {
         warnings: false,
+        drop_console: true,
       },
       output: {
         comments: false,
@@ -83,5 +116,6 @@ module.exports = {
     }),
     new ExtractTextPlugin("styles.css"),
   ]),
-  postcss: [autoprefixer({ browsers: ['> 1%', 'last 2 versions', 'Opera >= 12', 'Chrome >= 25', 'Firefox >= 13', 'ie >= 9'] })],
 };
+
+//postcss: [autoprefixer({ browsers: ['> 1%', 'last 2 versions', 'Opera >= 12', 'Chrome >= 25', 'Firefox >= 13', 'ie >= 9'] })],

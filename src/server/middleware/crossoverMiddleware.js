@@ -6,6 +6,8 @@ import { routes } from '../../client/react/routes/routes';
 import { baseReact } from '../../crossover/entry';
 import { getFreshStores } from '../../crossover/mobx/store-utils';
 
+const markoTemplate = require('../../../views/base.marko');
+
 export function injectState() {
   return async(ctx, next) => {
     console.log("Injecting (MobX) state into current request/response context");
@@ -39,7 +41,9 @@ export function renderReact() {
       } else if (props) {
         // if we got props then we matched a route and can render
         const html = renderToString(baseReact(ctx.state.mobx, <RouterContext {...props}/>));
-        ctx.render('base', {
+
+        ctx.type = "text/html";
+        ctx.body = markoTemplate.renderToString({
           html,
           title: "koa-mobx-react-starter",
           description: "Starter project for ReactJS, koa and the awesome MobX state management library.",

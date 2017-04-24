@@ -25,10 +25,13 @@ export function compressResponse() {
   return compress();
 }
 
-export function serveStaticFiles() {
-  const staticFolder = mount('/static', serve(`${__dirname}/../static`));
-  const distFolder = mount('/dist', serve(`${__dirname}/../../../dist`));
-  const fav = favicon(`${__dirname}/../static/favicon/favicon.ico`);
+const oneHour = 1000 * 60 * 60;
+const oneDay = oneHour * 24;
 
-  return compose([fav, staticFolder, distFolder]);
+export function serveStaticFiles() {
+  const staticFolder = mount('/static', serve(`static`));
+  const distFolder = mount('/dist', serve(`dist`));
+  const favicons = serve(`static/favicon`, { maxage: oneDay * 2 });
+
+  return compose([favicons, staticFolder, distFolder]);
 }

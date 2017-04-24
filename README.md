@@ -4,13 +4,14 @@
 
 Along with aiming to use the bleeding-edge of JavaScript (within reason- and all thanks to [Babel](https://babeljs.io/)), this repository represents a choice of frameworks and libraries I think work well together for an enjoyable NodeJS and frontend coding experience.
 
-#### Now with React-Router too!
+##### New :sunny: - React-Router
+##### New :sunny: - Marko
 
 A short rundown of the various technologies:
 
 ### Server
 - [Koa](http://koajs.com/) - A Node server framework with an eye on the future, using the async-await syntax. Server code compiled back to a widely adopted standard of JavaScript using Babel.
-- [Pug](https://github.com/pugjs) (formerly Jade) for views - Concise HTML view engine, into which we slot in our React-generated HTML
+- [Marko](http://markojs.com/) - Fast HTML rendering engine, into which we slot in our React-generated HTML
 
 ### Crossover
 - [MobX](https://github.com/mobxjs/mobx "MobX") - Awesome state management library, makes it so easy I feel like I'm cheating somehow. State stores initialized on the server, altered by some actions depending on request, and then passed over to the client to continue its state-altering journey.
@@ -158,12 +159,12 @@ To start the production server is the usual `npm start`, but the code has to be 
 npm run build
 npm start
 ```
-Or for quick production testing `npm run buildstart`
+Or for quick production testing `npm run build-start`
 
 Before deployment to a production server, your code should always be built first- so that the default `npm start` can be used to spin up quickly.
 
 ## Some Extra Configuration Information
 
-~~I've used a file watcher built into WebStorm to automatically process my ES2016/2017 server code through Babel so that it always stays up to date and runs without much hassle on Node. This is configured in the IDE, but can also be achieved with many other methods of your choice (manually through `babel-cli` with the `--watch` option for example).~~
+I'm using the `babel-register` module which is required before any other server code and automatically converts any further requires / imports to ES5 javascript. This is for development purposes only (`npm run dev` ) - as recommended.
 
-Since the above method became more complicated upon trying to make my server files more modular and separated, I'm now using the `babel-register` module which is required before any other server code and automatically converts any further requires / imports to ES5 javascript. Once NodeJS officially supports import / export and async functions, this shouldn't be a problem any more.
+The server code (and the React code which is used on the server) is then built into the `/built` folder for production use ( `npm start` )

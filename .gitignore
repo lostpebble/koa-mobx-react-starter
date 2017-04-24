@@ -6,4 +6,5 @@ test/encrypted/nodejs-docs-samples.json
 *.iml
 .idea/
 dist
+built
 tmp*

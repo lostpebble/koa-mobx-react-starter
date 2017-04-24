@@ -1,9 +1,10 @@
-import React, { Component, PropTypes } from 'react';
-import { observer } from 'mobx-react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { observer, inject } from 'mobx-react';
 
 import { PhoneIcon } from './svg/svgIcons';
 
-@observer(["UserStore"])
+@inject("UserStore") @observer
 export default class UserProfile extends Component {
 
   constructor(props) {
@@ -24,8 +25,8 @@ export default class UserProfile extends Component {
       <div className="content-block">
         <div className={`user-profile ${this.props.UserStore.loadingUser ? "loading" : ""}`}>
           <h2 className="user-name">{userProfile.name.first} {userProfile.name.last}</h2>
-          <img key={userProfile.picture.large} src={userProfile.picture.large} alt="User profile"/>
-          <h3 className="user-phone"><PhoneIcon/>{userProfile.phone}</h3>
+          <img key={userProfile.picture.large} src={userProfile.picture.large} alt="User profile" />
+          <h3 className="user-phone"><PhoneIcon />{userProfile.phone}</h3>
           <h3 className="user-address">{`${userProfile.location.street}, ${userProfile.location.city}`}</h3>
         </div>
         <div className="extra-info">User information retrieved from API (randomuser.me) and rendered on the server (try

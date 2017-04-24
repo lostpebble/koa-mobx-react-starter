@@ -15,7 +15,7 @@ import { createStoresFromState } from '../crossover/mobx/store-utils';
  +* */
 export function baseReact(stores, router) {
   return (
-    <Provider { ...stores }>
+    <Provider {...stores}>
       {router}
     </Provider>
   );
@@ -36,7 +36,7 @@ if (typeof document !== 'undefined') {
   // console.dir(stores);
 
   ReactDOM.render(
-    baseReact(stores, <Router routes={routes} history={browserHistory}/>),
+    baseReact(stores, <Router routes={routes} history={browserHistory} />),
     rootEl
   );
 

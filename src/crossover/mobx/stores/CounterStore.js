@@ -10,7 +10,7 @@ export default class CounterStore {
   }
 
   @action incrementValue() {
-    this.value++;
+    this.value += 1;
   }
 
   @action setValue(value) {

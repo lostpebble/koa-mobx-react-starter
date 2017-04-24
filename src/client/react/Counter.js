@@ -1,7 +1,8 @@
-import React, { Component, PropTypes } from 'react';
-import { observer } from 'mobx-react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { observer, inject } from 'mobx-react';
 
-@observer(["CounterStore"])
+@inject("CounterStore") @observer
 class Counter extends Component {
 
   componentDidMount() {
